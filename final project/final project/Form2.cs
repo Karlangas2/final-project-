@@ -35,7 +35,7 @@ namespace final_project
         private void button1_Click(object sender, EventArgs e)
         {
             string connect = "datasource=localhost;port=3306;username=root;password=;database=imss";
-            string query = "INSERT INTO login(`ID`,`USER`,`PASSWORD`) VALUES (NULL,'" + textBox1.Text + "','" + textBox2.Text + "')";
+            string query = "INSERT INTO login(`id`,`user`,`clave`) VALUES (NULL,'" + textBox1.Text + "','" + textBox2.Text + "')";
             MySqlConnection databaseConnection = new MySqlConnection(connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -44,7 +44,7 @@ namespace final_project
             {
                 databaseConnection.Open();
                 MySqlDataReader reader = commandDatabase.ExecuteReader();
-                MessageBox.Show("Exito al registrar usuario");
+                MessageBox.Show("Exito al registrarte");
                 databaseConnection.Close();
             }
             catch (Exception ex)
